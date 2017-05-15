@@ -9,13 +9,13 @@ describe('Our first test', ()=>{
 });
 
 describe('index.html', ()=>{
-  it('should say hello', (done)=>{
+  it('should have users', (done)=>{
     // provide html file to jsdom
     const index = fs.readFileSync('./src/index.html', "utf-8");
     jsdom.env(index, function(err, window){
       //we have virtual dom in memory
       const h1 = window.document.getElementsByTagName('h1')[0];
-      expect(h1.innerHTML).to.equal('Hi There?');
+      expect(h1.innerHTML).to.equal('Users');
       done();//we say here that tell me the result after done
       window.close();
     });
